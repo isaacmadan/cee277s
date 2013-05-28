@@ -1,6 +1,21 @@
 /** custom **/
 var map = "";
 
+function addCoord(data) {
+
+  var marker = new google.maps.Marker({
+      map:map,
+      position:new google.maps.LatLng(parseFloat(data.lat),parseFloat(data.lng)),
+    });
+
+  google.maps.event.addListener(marker, 'click', function() {
+          var infowindow = new google.maps.InfoWindow({});
+          infowindow.setContent("<span style='color:blue;'>" + data.name + "</span><br /><span>" + data.description + "</span>");
+          infowindow.open(map, this);
+  }); 
+
+}
+
 function initialize()
 {
   var mapProp = {
@@ -11,14 +26,15 @@ function initialize()
   map=new google.maps.Map(document.getElementById("googleMap")
     ,mapProp);
 
+  var cursor = Coordinates.find();
+  cursor.forEach(addCoord);
+
   //markers
-  
   for(var i=0; i < ngo_data.length; i++) {
     var marker = new google.maps.Marker({
         map:map,
         position:new google.maps.LatLng(parseFloat(ngo_data[i].lat),parseFloat(ngo_data[i].long)),
       });
-    //marker.setMap(map);
 
     marker.i = i;
         google.maps.event.addListener(marker, 'click', function() {
