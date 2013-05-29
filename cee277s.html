@@ -13,15 +13,88 @@
 </template>
 
 <template name="map">
-	<div id="controls">
-		<div id="controlDiv">
-			<button id="showControlButton">Show</button>
-			<div id="pinControls">
-				Lat: <input type="text" id="latField" /><br />
-				Long: <input type="text" id="longField" /><br />
-				<button id="addPinButton">Add</button>
+
+<div class="navbar navbar-inverse" style="margin-bottom:0px; background-color:black;">
+	<div class="navbar-inner">
+		<div class="container">
+			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="brand" href="./index.html">PARISHUDH</a>
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+					<li class="">
+						<a href="#myModal" role="button" data-toggle="modal">Add data point</a>
+					</li>
+					<li class="">
+						<a href="" id="resetCenterButton">Reset map center</a>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
-	<div id="googleMap"></div>
+</div>
+
+	<!-- data add modal -->
+	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">Add data</h3>
+		</div>
+		<div class="modal-body">
+			<form class="form-horizontal">
+			  <div class="control-group">
+			    <label class="control-label" for="nameField">Name</label>
+			    <div class="controls">
+			      <input type="text" id="nameField" placeholder="Name">
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="descriptionField">Description</label>
+			    <div class="controls">
+			      <input type="text" id="descriptionField" placeholder="Description">
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="latField">Latitude</label>
+			    <div class="controls">
+			      <input type="text" id="latField" placeholder="Latitude">
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="longField">Longitude</label>
+			    <div class="controls">
+			      <input type="text" id="longField" placeholder="Longitude">
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="imageField">Image</label>
+			    <div class="controls">
+			    	<select id="imageField">
+			    		<option></option>
+			    		<option value="IMG_3451.jpg">IMG_3451.jpg</option>
+			    		<option value="IMG_3476.jpg">IMG_3476.jpg</option>
+			    		<option value="IMG_3478.jpg">IMG_3478.jpg</option>
+			    		<option value="IMG_3484.jpg">IMG_3484.jpg</option>
+			    		<option value="IMG_3504.jpg">IMG_3504.jpg</option>
+		    		</select>
+			    </div>
+			  </div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Cancel</button>
+			<button class="btn btn-primary" data-dismiss="modal" id="addPinButton">Submit</button>
+		</div>
+	</div>
+
+	<div class="container-fluid" style="padding:0px;">
+		<div class="row-fluid">
+			<div class="span12">
+				<div id="googleMap"></div>
+			</div>
+		</div>
+	</div>
 </template>

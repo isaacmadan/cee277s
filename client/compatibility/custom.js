@@ -1,5 +1,6 @@
 /** custom **/
 var map = "";
+var imageArray = new Array("IMG_3451.jpg", "IMG_3476.jpg", "IMG_3478.jpg", "IMG_3484.jpg", "IMG_3504.jpg");
 
 function addCoord(data) {
 
@@ -10,7 +11,7 @@ function addCoord(data) {
 
   google.maps.event.addListener(marker, 'click', function() {
           var infowindow = new google.maps.InfoWindow({});
-          infowindow.setContent("<span style='color:blue;'>" + data.name + "</span><br /><span>" + data.description + "</span>");
+          infowindow.setContent("<span style='font-weight:bold;'>" + data.name + "</span><br /><span>" + data.description + "</span><br /><img src='" + data.image + "' width='150px' />");
           infowindow.open(map, this);
   }); 
 
@@ -37,11 +38,11 @@ function initialize()
       });
 
     marker.i = i;
-        google.maps.event.addListener(marker, 'click', function() {
-                var infowindow = new google.maps.InfoWindow({});
-                infowindow.setContent("<span style='color:blue;'>" + ngo_data[this.i].name + "</span><br /><img width='50px' src='assets/img/image1.jpg' />");
-                infowindow.open(map, this);
-        }); 
+    google.maps.event.addListener(marker, 'click', function() {
+      var infowindow = new google.maps.InfoWindow({});
+      infowindow.setContent("<span style='font-weight:bold;'>" + ngo_data[this.i].name + "</span><br /><img width='150px' src='" + imageArray[Math.floor(Math.random()*4)] + "' />");
+      infowindow.open(map, this);
+    }); 
   }
 }
 

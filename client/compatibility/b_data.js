@@ -2674,3 +2674,15 @@ var ngo_data = [{"excel_id":1,"row_id":12,"user":"par","name":"vasu on idea pad"
 {"excel_id":2674,"row_id":2794,"user":"par","name":"NINGAPPA SOMPUR","lat":15.38172289,"long":76.02354767},
 {"excel_id":2675,"row_id":2795,"user":"par","name":"CHANNAVVA SHEKHAPPA HALLIKERI","lat":15.37818874,"long":76.01957391},
 {"excel_id":2676,"row_id":2796,"user":"par","name":"TIMMANNA SOMARADDI","lat":15.37818874,"long":76.01957391}];
+
+
+/**
+Coordinates = new Meteor.Collection("coordinates");
+
+for(var i = 0; i < ngo_data.length; i++) {
+	Coordinates.insert({lat: parseFloat(ngo_data[i].lat), lng: parseFloat(ngo_data[i].lng), name: ngo_data[i].name, description: "none"});
+}
+**/
+
+
+
